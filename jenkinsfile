@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    docker {image 'node:16-alpine'}
+    docker {image 'nginx'}
   }
   stages {
     stage('build') {
@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh'scp -o striktHostkeychecking=NO target/node:16-alpine ec2-user@43.205.140.18'
+        sh'scp -o striktHostkeychecking=NO target/node:16-alpine ec2-user@43.205.140.1'
       }
     }
     stage('test') {
