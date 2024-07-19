@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        sh'kubectl apply -f deployment.yml'
+        sh'scp -o striktHostkeychecking=NO target/node:16-alpine ec2-user@43.205.140.18'
       }
     }
     stage('test') {
